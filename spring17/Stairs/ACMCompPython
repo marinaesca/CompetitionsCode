@@ -1,0 +1,29 @@
+
+
+def dist(x, y, a, b):
+	return (abs(x-a) + abs(y-b))
+
+n = input()
+
+for i in range(n):
+	x,y = raw_input().split()
+	x = int(x)
+	y = int(y)
+
+	ele = input()
+	bestA = 10E9
+	bestB = 10E9
+	for e in range(ele):
+		a,b = raw_input().split()
+		a = int(a)
+		b = int(b)
+		temp = dist(x,y,a,b)
+		if(temp < (dist(x,y,bestA,bestB))):
+			bestA = a
+			bestB = b
+
+	if(bestA == 10E9 and bestB == 10E9):
+		print '(0,0)'
+	else:
+		print '(%d,%d)' % (bestA,bestB)
+
